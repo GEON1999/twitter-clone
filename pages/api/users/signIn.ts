@@ -7,7 +7,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
   const {
     body: { name, email, password },
   } = req;
-  console.log(req);
   const user = await db.user.create({
     data: {
       name,

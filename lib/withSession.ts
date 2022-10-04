@@ -11,7 +11,8 @@ declare module "iron-session" {
 
 const cookieOptions = {
   cookieName: "CarotSession",
-  password: process.env.SESSION_PASSWORD!,
+  password:
+    "4df5g4f65s4g5f61hs0f5g6hgf65j8754854656476574bt65e464v4t65240v54624v62465v0446v40245v65s46505665460",
 };
 
 export function withApiSession(fn: any) {

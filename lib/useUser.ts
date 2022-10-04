@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import useSWR from "swr";
 
 export default function useUser() {
-  const { data, error } = useSWR("/api/users/me");
+  const { data, error } = useSWR("/api/users");
   const router = useRouter();
   useEffect(() => {
     if (
@@ -12,7 +12,7 @@ export default function useUser() {
       router.pathname !== `/login` &&
       router.pathname !== `/sign-in`
     ) {
-      router.replace("/enter");
+      router.replace("/login");
     }
   }, [data, router]);
 
