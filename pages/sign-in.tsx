@@ -1,12 +1,21 @@
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useMutation from "../lib/useMutation";
 
 export default function SignIn() {
-  const [mutate] = useMutation("/api/users/signIn");
+  const router = useRouter();
+  const [mutate, { data }] = useMutation("/api/users/signIn");
   const { register, handleSubmit } = useForm();
   const onValid = (validForm: any) => {
     mutate(validForm);
   };
+  console.log(data);
+  useEffect(() => {
+    if (data && data?.ok) {
+      router.push("/login");
+    }
+  }, [data, router]);
   return (
     <div className="flex justify-center items-center">
       <div>
