@@ -13,12 +13,12 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     },
   });
 
-  if (user.password === password) {
+  if (user && user?.password == password) {
     req.session.user = {
-      id: user.id,
+      id: user?.id,
     };
     await req.session.save();
-    res.json({ ok: true, user });
+    return res.json({ ok: true, user });
   }
   res.json({ ok: false });
 }

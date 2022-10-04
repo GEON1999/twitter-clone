@@ -13,6 +13,11 @@ export default function useUser() {
       router.pathname !== `/sign-in`
     ) {
       router.replace("/login");
+    } else if (
+      (data && data?.ok && router.pathname === `/login`) ||
+      (data && data?.ok && router.pathname === `/sign-in`)
+    ) {
+      router.replace("/");
     }
   }, [data, router]);
 
